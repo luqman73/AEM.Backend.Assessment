@@ -1,0 +1,32 @@
+[
+  {
+    "ContainingType": "AEM.Backend.Assessment.Controllers.DataSyncController",
+    "Method": "Login",
+    "RelativePath": "api/DataSync/login",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AEM.Backend.Assessment.Controllers.DataSyncController",
+    "Method": "PreviewPlatformWell",
+    "RelativePath": "api/DataSync/preview-platform-well",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AEM.Backend.Assessment.Controllers.DataSyncController",
+    "Method": "SyncPlatformWell",
+    "RelativePath": "api/DataSync/sync-platform-well",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
