@@ -33,10 +33,11 @@ https://localhost:<port>/swagger
 
 ## Sync Data
 
-Call the endpoint:
+Call the endpoints:
 
 ```
 POST /api/DataSync/sync-platform-well
+POST /api/DataSync/sync-platform-well-dummy
 ```
 
 ---
