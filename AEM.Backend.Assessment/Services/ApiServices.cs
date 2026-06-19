@@ -56,10 +56,39 @@ public class ApiService
         return await response.Content.ReadAsStringAsync();
     }
 
-    public async Task SyncPlatformWellAsync(string token)
+    public async Task<string> GetPlatformWellDummyAsync(string token)
+    {
+        var request = new HttpRequestMessage(
+            HttpMethod.Get,
+            "http://test-demo.aemenersol.com/api/PlatformWell/GetPlatformWellDummy"
+        );
+
+        request.Headers.Authorization =
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+        var response = await _httpClient.SendAsync(request);
+
+        response.EnsureSuccessStatusCode();
+
+        return await response.Content.ReadAsStringAsync();
+    }
+
+    public async Task SyncPlatformWellActualAsync(string token)
     {
         var data = await GetPlatformWellActualAsync(token);
 
+        await ProcessPlatformWellData(data);
+    }
+
+    public async Task SyncPlatformWellDummyAsync(string token)
+    {
+        var data = await GetPlatformWellDummyAsync(token);
+
+        await ProcessPlatformWellData(data);
+    }
+
+    private async Task ProcessPlatformWellData(string data)
+    {
         var options = new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
@@ -89,12 +118,12 @@ public class ApiService
             }
             else
             {
-                existingPlatform.UniqueName = platform.UniqueName;
-                existingPlatform.Latitude = platform.Latitude;
-                existingPlatform.Longitude = platform.Longitude;
-                existingPlatform.UpdatedAt = platform.UpdatedAt;
+                existingPlatform.UniqueName = platform.UniqueName ?? existingPlatform.UniqueName;
+                existingPlatform.Latitude = platform.Latitude ?? existingPlatform.Latitude;
+                existingPlatform.Longitude = platform.Longitude ?? existingPlatform.Longitude;
+                existingPlatform.UpdatedAt = platform.UpdatedAt ?? existingPlatform.UpdatedAt;
             }
-            
+
             // Save insert platform first so that well can refer to the platform
             await _db.SaveChangesAsync();
 
@@ -124,10 +153,10 @@ public class ApiService
                     }
                     else
                     {
-                        existingWell.UniqueName = well.UniqueName;
-                        existingWell.Latitude = well.Latitude;
-                        existingWell.Longitude = well.Longitude;
-                        existingWell.UpdatedAt = well.UpdatedAt;
+                        existingWell.UniqueName = well.UniqueName ?? existingWell.UniqueName;
+                        existingWell.Latitude = well.Latitude ?? existingWell.Latitude;
+                        existingWell.Longitude = well.Longitude ?? existingWell.Longitude;
+                        existingWell.UpdatedAt = well.UpdatedAt ?? existingWell.UpdatedAt;
                     }
                 }
             }

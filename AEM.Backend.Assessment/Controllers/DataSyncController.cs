@@ -45,8 +45,18 @@ public class DataSyncController : ControllerBase
     {
         var token = (await _apiService.LoginAsync()).Replace("\"", "");
 
-        await _apiService.SyncPlatformWellAsync(token);
+        await _apiService.SyncPlatformWellActualAsync(token);
 
         return Ok("Sync completed successfully");
+    }
+
+    [HttpPost("sync-platform-well-dummy")]
+    public async Task<IActionResult> SyncPlatformWellDummy()
+    {
+        var token = (await _apiService.LoginAsync()).Replace("\"", "");
+
+        await _apiService.SyncPlatformWellDummyAsync(token);
+
+        return Ok("Dummy data synced successfully.");
     }
 }

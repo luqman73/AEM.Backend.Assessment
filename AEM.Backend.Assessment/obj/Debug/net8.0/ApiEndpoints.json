@@ -28,5 +28,15 @@
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AEM.Backend.Assessment.Controllers.DataSyncController",
+    "Method": "SyncPlatformWellDummy",
+    "RelativePath": "api/DataSync/sync-platform-well-dummy",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]
