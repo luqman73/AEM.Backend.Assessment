@@ -157,7 +157,7 @@ public class ApiService
                         existingWell.UniqueName = well.UniqueName ?? existingWell.UniqueName;
                         existingWell.Latitude = well.Latitude ?? existingWell.Latitude;
                         existingWell.Longitude = well.Longitude ?? existingWell.Longitude;
-                        existingWell.CreatedAt = well.UpdatedAt ?? existingWell.CreatedAt;
+                        existingWell.CreatedAt = well.CreatedAt ?? existingWell.CreatedAt;
                         existingWell.UpdatedAt = well.UpdatedAt ?? existingWell.UpdatedAt;
                     }
                 }
