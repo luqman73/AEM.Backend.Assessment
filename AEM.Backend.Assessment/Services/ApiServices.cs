@@ -121,6 +121,7 @@ public class ApiService
                 existingPlatform.UniqueName = platform.UniqueName ?? existingPlatform.UniqueName;
                 existingPlatform.Latitude = platform.Latitude ?? existingPlatform.Latitude;
                 existingPlatform.Longitude = platform.Longitude ?? existingPlatform.Longitude;
+                existingPlatform.CreatedAt = existingPlatform.CreatedAt ?? platform.CreatedAt;
                 existingPlatform.UpdatedAt = platform.UpdatedAt ?? existingPlatform.UpdatedAt;
             }
 
@@ -156,6 +157,7 @@ public class ApiService
                         existingWell.UniqueName = well.UniqueName ?? existingWell.UniqueName;
                         existingWell.Latitude = well.Latitude ?? existingWell.Latitude;
                         existingWell.Longitude = well.Longitude ?? existingWell.Longitude;
+                        existingWell.CreatedAt = well.UpdatedAt ?? existingWell.CreatedAt;
                         existingWell.UpdatedAt = well.UpdatedAt ?? existingWell.UpdatedAt;
                     }
                 }
